@@ -6,9 +6,15 @@ import racingcar.model.Car;
 public class View {
 
     public String[] getCarNames() {
+        String[] res;
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String input = Console.readLine();
-        return input.split(",");
+        res =  input.split(",");
+        if(res.length<2) {
+            throw new IllegalArgumentException("차량은 2대 이상이어야 합니다.");
+        } else{
+            return res;
+        }
     }
 
     public int getTimes() {
